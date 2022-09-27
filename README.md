@@ -5,4 +5,4 @@ Breve descrição do grupo
 * Grupo: 04
 * Alunos:
     - Catarina Rute Pinheiro Barbosa - up202004898
-    - Aluno2 upZZZZZ
+    - Francisca Correia de Moura Sineiro Andrade - up202005977
