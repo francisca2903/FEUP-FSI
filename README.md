@@ -1,9 +1,8 @@
 
 Breve descrição do grupo
 
-* Turno: [LM]XX
-* Grupo: YY
+* Turno: 3LEIC08
+* Grupo: 04
 * Alunos:
-    - Aluno1 upZZZZZ 
+    - Catarina Rute Pinheiro Barbosa - up202004898
     - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
