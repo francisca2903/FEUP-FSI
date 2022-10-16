@@ -23,3 +23,18 @@ Set-UID is a special type of permission on Unix, that allows programs to run wit
 ## Task 6: The PATH Environment Variable and Set-UID Programs
 
 By passing the *ls* command on the system function, and since the system has root privileges, the program will be executed with elevated privileges and can do harm, bypassing the mechanism that was able to remove the privileges of the non-root users.
+
+
+### CTF
+
+The first step to solve this challenge was to enter the Wordpress page and navegate through it, including seeing the html of the page, so that we could gather information in order to help us look for a vulnerability. We gathered the following information:
+
+- Wordpress version: 5.8.1
+- WooCommerce version: 5.7.1
+- Plugins: Booster for WooCommerce plugin - version 5.4.3
+- Users: admin, Orval Sanford
+
+With all this information, we were able to find the CVE-2021-34646, that seemed to work with the information that we had. By using the exploit found here https://www.exploit-db.com/exploits/50299, we achieved our goal.
+
+
+
