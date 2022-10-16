@@ -25,7 +25,7 @@ Set-UID is a special type of permission on Unix, that allows programs to run wit
 By passing the *ls* command on the system function, and since the system has root privileges, the program will be executed with elevated privileges and can do harm, bypassing the mechanism that was able to remove the privileges of the non-root users.
 
 
-### CTF
+# CTF
 
 The first step to solve this challenge was to enter the Wordpress page and navegate through it, including seeing the html of the page, so that we could gather information in order to help us look for a vulnerability. We gathered the following information:
 
@@ -34,7 +34,11 @@ The first step to solve this challenge was to enter the Wordpress page and naveg
 - Plugins: Booster for WooCommerce plugin - version 5.4.3
 - Users: admin, Orval Sanford
 
-With all this information, we were able to find the CVE-2021-34646, that seemed to work with the information that we had. By using the exploit found here https://www.exploit-db.com/exploits/50299, we achieved our goal.
+With all this information, we were able to find the CVE-2021-34646, that seemed to work with the information that we had. By using the exploit found here https://www.exploit-db.com/exploits/50299, we achieved our goal. 
 
+Here are some screenchots of our procedure:
 
+![image-2.png](./image-2.png)
+![image-1.png](./image-1.png)
+![image.png](./image.png)
 
