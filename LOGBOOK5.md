@@ -19,20 +19,16 @@ Here is the screenshots for the execution of this part:
 ![image-6.png](./image-6.png)
 ![image-7.png](./image-7.png)
 
-### 5.2 
+### 5.2 Launching Attacks
 
 ![image-8.png](./image-8.png) 
 
 For this part, this is how we calculated the values:
 
-
-Ret - buffer address (0xfffcb0c) + 490 = 0xffffccf6
-Offset - (ebp address - buffer address)= 108 + 4 = 112
-
-*shellcode* - here we just needed to add the binary code for the 32 bit presented in the *call_shellcode.c*.
-*start* - the buffer has a size of 517 and our shell code has a size of 27 bytes and since we are putting our shellcode in the end of the stack, we need to subtract 527 and 27 that leads us to the 490 presented.
-*ret* - this is the return address that will be pointing to our shellcode. Our buffer starts at 0xFFFFCB0C so we do 0xFFFFCB0C + 490, because we are putting our shellcode 27 bytes before the end of the buffer, that gives us our return address which was 0xFFFFCCF6.
-*offset* - this gives the place where we want to inject in our return adress so of our ebp address (0xFFFFCB78) we subtract our buffer address (0xFFFFCB0C), we know that that the ebp address starts at 108 bytes after the buffer, lastly we need to add the size of the ebp, which we know is 4 bytes, and we get 112.
+*shellcode* - here we just needed to add the binary code for the 32 bit presented in the *call_shellcode.c*. <br>
+*start* - the buffer has a size of 517 and our shell code has a size of 27 bytes and since we are putting our shellcode in the end of the stack, we need to subtract 527 and 27 that leads us to the 490 presented. <br>
+*ret* - this is the return address that will be pointing to our shellcode. Our buffer starts at 0xFFFFCB0C so we do 0xFFFFCB0C + 490, because we are putting our shellcode 27 bytes before the end of the buffer, that gives us our return address which was 0xFFFFCCF6. <br>
+*offset* - this gives the place where we want to inject in our return adress so of our ebp address (0xFFFFCB78) we subtract our buffer address (0xFFFFCB0C), we know that that the ebp address starts at 108 bytes after the buffer, lastly we need to add the size of the ebp, which we know is 4 bytes, and we get 112. <br>
 
 
-![image-9.png](./image-9.png) final
+![image-9.png](./image-9.png) 
