@@ -13,16 +13,16 @@ This task is more of an explanation of the buffer overflow vulnerability. What t
 ### 5.1 Launching Attacks
 Here is the screenshots for the execution of this part:
 
-![image-3.png](./image-3.png)
-![image-4.png](./image-4.png)
-![image-5.png](./image-5.png)
-![image-6.png](./image-6.png)
-![image-7.png](./image-7.png)
+![image-3.png](images/image-3.png)
+![image-4.png](images/image-4.png)
+![image-5.png](images/image-5.png)
+![image-6.png](images/image-6.png)
+![image-7.png](images/image-7.png)
 
 ### 5.2 Launching Attacks
 The goal is to exploit the buffer-overflow vulnerability.
 
-![image-8.png](./image-8.png) 
+![image-8.png](images/image-8.png) 
 
 For this part, this is how we calculated the values:
 
@@ -36,4 +36,4 @@ For this part, this is how we calculated the values:
 
 After running the program, this is what we get:
 
-![image-9.png](./image-9.png) 
+![image-9.png](images/image-9.png) 
