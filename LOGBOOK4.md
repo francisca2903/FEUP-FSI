@@ -38,7 +38,7 @@ With all this information, we were able to find the CVE-2021-34646, that seemed 
 
 Here are some screenchots of our procedure:
 
-![image-2.png](./image-2.png)
-![image-1.png](./image-1.png)
-![image.png](./image.png)
+![image-2.png](images/image-2.png)
+![image-1.png](images/image-1.png)
+![image.png](images/image.png)
 
