@@ -45,9 +45,9 @@ After running the program, this is what we get:
 The goal of this challenge was to help us understand the buffer-overflow vulnerability.
 After analysing the code we were able to answer the questions below:
 
-### Is there any file that is opened and read by the program? ### Yes, the file mem.txt is opened to be read by the program.
-### Is there any way to control the file that was opened? ### Yes, by modifying the name of the file that we want to open in *meme_file*
-### Is there any buffer-overflow? If yes, what can you do? ### A buffer-overflow can occur because the buffer that allows the person to write allocates memory for only 20 characters while the function scans reads 28 characters. The extra 8 characters that we write will be inserted in the string *meme_file* and the flag needed will be presented.
+**Is there any file that is opened and read by the program?** Yes, the file *mem.txt* is opened to be read by the program.
+**Is there any way to control the file that was opened?** Yes, by modifying the name of the file that we want to open in *meme_file*
+**Is there any buffer-overflow? If yes, what can you do?** A buffer-overflow can occur because the buffer that allows the person to write allocates memory for only 20 characters while the function scans reads 28 characters. The extra 8 characters that we write will be inserted in the string *meme_file* and the flag needed will be presented.
 
 ![image10.png](images/image.png)
 
