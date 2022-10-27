@@ -45,9 +45,20 @@ After running the program, this is what we get:
 The goal of this challenge was to help us understand the buffer-overflow vulnerability.
 After analysing the code we were able to answer the questions below:
 
-**Is there any file that is opened and read by the program?** Yes, the file *mem.txt* is opened to be read by the program.
-**Is there any way to control the file that was opened?** Yes, by modifying the name of the file that we want to open in *meme_file*
-**Is there any buffer-overflow? If yes, what can you do?** A buffer-overflow can occur because the buffer that allows the person to write allocates memory for only 20 characters while the function scans reads 28 characters. The extra 8 characters that we write will be inserted in the string *meme_file* and the flag needed will be presented.
+**Is there any file that is opened and read by the program?** Yes, the file *mem.txt* is opened to be read by the program. <br>
+**Is there any way to control the file that was opened?** Yes, by modifying the name of the file that we want to open in *meme_file*. <br>
+**Is there any buffer-overflow? If yes, what can you do?** A buffer-overflow can occur because the buffer that allows the person to write allocates memory for only 20 characters while the function scans reads 28 characters. The extra 8 characters that we write will be inserted in the string *meme_file* and the flag needed will be presented. <br>
 
 ![image10.png](images/image.png)
+
+## Desafio 2
+
+Just like the previous challenge, we analised the code and answered a few questions:
+
+**What alterations were made?** There is a new variable being used, *val*, the *scanf* functions reads 32 characters instead of the previous 28 and the file can only be opened if the variable *val* equals to 0xfefc2122. <br>
+**Do they fully mitigate the problem?** No. To read the flag we need to perform a task similar to the one we performed on the previous challenge, but additionally we need to make sure that the variable *val* is equal to 0xfefc2122. <br>
+**Is it possible to overcome mitigation using a technique similar to the one used before?** Yes, by adding the value of the variable *val* to the sequence previously used. In our case, we used the string “abcdefghijklmnopqrst\x23\x22\xfc\xfeflag.txt” since the first 20 characters weren’t relevant for this exercise, followed by the 4 characters that correspond to the variable *val* value, written in the opposite order, and finally the name of he file that we want to open and read. <br>
+
+![image11.png](images/image-1.png)
+![image12.png](images/image-2.png)
 
