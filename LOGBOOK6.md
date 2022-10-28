@@ -19,18 +19,28 @@ This happens because the *%n* in a string loads the variable where the pointer i
 
 ## Task 2: Printing Out the Server Program's Memory
 
-### Task 2.A
+### Task 2.A: Stack Data
 
 To help us this exploit, we are using the *%x*, by writing it as needed ultil we reach our string "0xbfffeeee". We figured we needed to inject a total of 63 *%x* by trial and error until we finally reached our string. The *%x* allows unlimited dumping of the memory segment values. 
 
 ![image-5.png](./image-5.png)
 ![image-4.png](./image-4.png)
 
-### Task 2.B
+### Task 2.B: Heap Data
 
 To perform this task, we needed to alter our string to the address of the secret message that the server already provides us (0x080b4008). Then, we do part of what we already did in the previous task, use the *%x* to jump through the memory and we also execute a *%s* to print the string.
-By executing our build_string.py, we see that the secret message was "A secret message".
+By executing our build_string.py, we see that the secret message was "A secret message", as seen below.
 
 ![image-7.png](./image-7.png)
 ![image-6.png](./image-6.png)
+
+##Task 3: Modifying the Server Program’s Memory
+
+### Task 3.A: Change the value to a different value
+
+For this task, we needed to change the value of the *target* variable. Just like in the task 3.b we have to change our string and make it the address, in this case, of the target variable, provided aswell by the server (0x080e5068). We first need to skip 63 addresses so we can alter our *target* variable, and then we add *%n* to the end of our string so then it can overwrite the value of *target*.
+
+![image-8.png](./image-8.png)
+![image-9.png](./image-9.png)
+
 
