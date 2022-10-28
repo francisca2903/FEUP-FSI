@@ -47,7 +47,7 @@ For this task, we needed to change the value of the *target* variable. Just like
 
 For us to be able to change the variable's value to 0x5000 we first understood that it corresponds to 20480 in decimal, which that we have to write 20480 bits of information but since the server has a limit of 1500, we are going to take advantage of the *printf()* function.
 
-In this case, we subtracted the number of bytes of the dirence that we had discovered in the previous tasks, leading to this: **20480 - 8*63 = 19976** and plus the *%n*, that we already know that prints the number of characters in the string so far.
+In this case, we subtracted the number of bytes of the diference that we had discovered in the previous tasks and 8 that corresponds to our offset, leading to this: **20480 - 8*62 - 8 = 19976** and plus the *%n*, that we already know that prints the number of characters in the string so far.
 
 ![image23.png](images/image23.png)
 ![image24.png](images/image24.png)
