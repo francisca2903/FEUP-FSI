@@ -64,7 +64,7 @@ With this information, we gathered that the program has Partial RELRO, which mea
 
 We then analysed the code and answer the following questions:
 
-**Which is the line of code where the vulnerability is?**  The vulnerability is in line 27 **printf(buffer);**.
+**Which is the line of code where the vulnerability is?**  The vulnerability is in line 27 *printf(buffer);*.
 
 **What does the vulnerability allows you to do?**  This vulnerability allows us to check content of the memory address of the buffer. In this case, we want to check the address of the *flag* variable. For that we used *gbd* to obtain that information, by using the command *p &flag*, we learned that our flag is stored in 0x804c060.
 
