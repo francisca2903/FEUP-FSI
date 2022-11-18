@@ -64,13 +64,13 @@ With this information, we gathered that the program has Partial RELRO, which mea
 
 We then analysed the code and answer the following questions:
 
-*Which is the line of code where the vulnerability is?*  The vulnerability is in line 27 **printf(buffer);**.
+**Which is the line of code where the vulnerability is?**  The vulnerability is in line 27 **printf(buffer);**.
 
-*What does the vulnerability allows you to do?*  This vulnerability allows us to check content of the memory address of the buffer. In this case, we want to check the address of the *flag* variable. For that we used *gbd* to obtain that information, by using the command *p &flag*, we learned that our flag is stored in 0x804c060.
+**What does the vulnerability allows you to do?**  This vulnerability allows us to check content of the memory address of the buffer. In this case, we want to check the address of the *flag* variable. For that we used *gbd* to obtain that information, by using the command *p &flag*, we learned that our flag is stored in 0x804c060.
 
 ![image26.png](images/image26.png)
 
-*What is the functionality that allows you to obtain the flag?*  We are able to get the flag because of a format-string vulnerability, that allows us to read from an arbitrary memory place.
+**What is the functionality that allows you to obtain the flag?**  We are able to get the flag because of a format-string vulnerability, that allows us to read from an arbitrary memory place.
 
 After discovering the address of our *flag*, by inserting the string “aaaa%x” we see that the buffer is the first thing the printf gets. 
 
@@ -92,12 +92,11 @@ We concluded that the restrictions were the same as in the first challenge, the 
 
 After analysing the code, we answered a few more questions:
 
-*Which Is the line of code where the vulnerability is? And does the vulnerability allow you to do?* The vulnerability is in line 13 **printf(buffer);**.
+**Which Is the line of code where the vulnerability is? And does the vulnerability allow you to do?** The vulnerability is in line 13 *printf(buffer);*.
 
-*The flag is loaded into memory? Or is there any functionality that we can use to have access it?* No, it isn’t. We can access the flag through the shell when the key value is *0xbeef*.
+**The flag is loaded into memory? Or is there any functionality that we can use to have access it?** No, it isn’t. We can access the flag through the shell when the key value is *0xbeef*.
 
-*To unlock this functionality what do you have to do?* 
-
+**To unlock this functionality what do you have to do?** 
 For us to be able to get the flag, we are going to use the method we previously used, but instead of targeting a flag, we target the variable key by using the command *p &key*.
 
 ![image32.png](images/image32.png)
