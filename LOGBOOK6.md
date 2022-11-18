@@ -52,3 +52,66 @@ In this case, we subtracted the number of bytes of the diference that we had dis
 ![image23.png](images/image23.png)
 ![image24.png](images/image24.png)
 
+# CTF 
+
+## Challenge 1
+
+After executing *checksec*, we had the following result:
+
+![image25.png](images/image25.png)
+
+With this information, we gathered that the program has Partial RELRO, which means there is no risk of a buffer overflow. There is also a canary protecting the return address, NX is enabled so it means that the stack has no execute permission. We also see that there is no PIE, that is responsible for providing some address randomness.
+
+We then analysed the code and answer the following questions:
+
+*Which is the line of code where the vulnerability is?*  The vulnerability is in line 27 **printf(buffer);**.
+
+*What does the vulnerability allows you to do?*  This vulnerability allows us to check content of the memory address of the buffer. In this case, we want to check the address of the *flag* variable. For that we used *gbd* to obtain that information, by using the command *p &flag*, we learned that our flag is stored in 0x804c060.
+
+![image26.png](images/image26.png)
+
+*What is the functionality that allows you to obtain the flag?*  We are able to get the flag because of a format-string vulnerability, that allows us to read from an arbitrary memory place.
+
+After discovering the address of our *flag*, by inserting the string “aaaa%x” we see that the buffer is the first thing the printf gets. 
+
+![image27.png](images/image27.png)
+![image28.png](images/image28.png)
+
+This means that we can place our flag address in the beginning of our payload followed by a *%s* so it prints the flag that we want.
+
+![image29.png](images/image29.png)
+![image30.png](images/image30.png)
+
+## Challenge 2
+
+After executing *checksec*, we had the following result:
+
+![image31.png](images/image31.png)
+
+We concluded that the restrictions were the same as in the first challenge, the program has Partial RELRO, which means there is no risk of a buffer overflow. There is also a canary protecting the return address, NX is enabled so it means that the stack has no execute permission. We also see that there is no PIE, that is responsible for providing some address randomness.
+
+After analysing the code, we answered a few more questions:
+
+*Which Is the line of code where the vulnerability is? And does the vulnerability allow you to do?* The vulnerability is in line 13 **printf(buffer);**.
+
+*The flag is loaded into memory? Or is there any functionality that we can use to have access it?* No, it isn’t. We can access the flag through the shell when the key value is *0xbeef*.
+
+*To unlock this functionality what do you have to do?* 
+
+For us to be able to get the flag, we are going to use the method we previously used, but instead of targeting a flag, we target the variable key by using the command *p &key*.
+
+![image32.png](images/image32.png)
+
+After that we preceded to use the same method as challenge 1 to see what the offset might be, and conclude once again that the adresses were in consecutive places.
+
+Now we know that we need to write the value *0xbeef* into our address 0x804c034. The value *0xbeef* corresponds to 48879 in decimal, with that in mind we need to subtract the number of characters that represents our string "aaaa" (4) and subtract 4 more that belong to the space that is needed for the address value, that leaves us with 48871. **(48879-4-4=48871)**
+
+![image33.png](images/image33.png)
+
+Then a new shell is presented and we used the command *cat flag.txt* to see the flag.
+
+![image34.png](images/image34.png)
+![image35.png](images/image35.png)
+
+
+
