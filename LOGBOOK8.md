@@ -49,7 +49,7 @@ To change Alice's salary we first need to log as Alice, by giving the username f
 
 # Task 3.2: Modify other people’ salary
 
-For this task we need to alter someone else's salary and to do that, we just need to do **',salary=1 WHERE Name='Boby';# ** on the nickname field of Alice's profile.
+For this task we need to alter someone else's salary and to do that, we just need to do **',salary=1 WHERE Name='Boby';#** on the nickname field of Alice's profile.
 
 ![image47.png](images/image47.png)
 ![image48.png](images/image48.png)
