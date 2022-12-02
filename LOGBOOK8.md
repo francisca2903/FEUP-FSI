@@ -88,6 +88,10 @@ password:' OR 1=1--'**
 
 ## Challenge 2
 
+![image57.png](images/image57.png)
+
+With this information, we gathered that the program doesn't have RELRO, which means there is risk of a buffer overflow. There is no canary protecting the return address, NX is disabled so it means that the stack has execute permission, but we see that there is PIE, that is responsible for providing some address randomness, and there is also RWX segments. <br>
+
 To complete this challenge we are going to be calling a shell from the server (reverse shell), that we are able to achieve by doing the following:
 
 ![image55.png](images/image55.png)
