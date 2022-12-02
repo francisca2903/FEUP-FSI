@@ -71,7 +71,7 @@ We can now log into his account using our password.
 
 ## Challenge 1
 
-After analysing the code, we identified a vulnerability in the login section in the folling line:
+After analysing the code, we identified a vulnerability in the login section in the following line:
 
 ![image53.png](images/image53.png)
 
@@ -97,7 +97,7 @@ With this information, we gathered that the program doesn't have RELRO, which me
 We analysed the code and then answered some questions:
 
 **Which is the line of code where the vulnerability is?** The vulnerability is in line 12 *gets(buffer);*. <br>
-**What does the vulnerability allow to do?**  The *gets()* function reads a byte from the stdin until it founds *\0* or *\n*. Since we are reading towards a 100 bytes buffer, we can inject a payload bigger than 100 bytes and like that, overwritte the value of the return address. Because of this vulnerability, we can inject the shellcode that will returns us a shell that will be useful for us to finish the challenge. <br>
+**What does the vulnerability allow to do?**  The *gets()* function reads a byte from the stdin until it founds '\0' or '\n'. Since we are reading towards a 100 bytes buffer, we can inject a payload bigger than 100 bytes and like that, overwritte the value of the return address. Because of this vulnerability, we can inject the shellcode that will returns us a shell that will be useful for us to finish the challenge. <br>
 
 To complete this challenge we are going to be call a shell, as explained above, from the server, that we are able to achieve by doing the following:
 
