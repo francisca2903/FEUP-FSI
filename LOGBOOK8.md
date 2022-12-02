@@ -86,5 +86,13 @@ password:' OR 1=1--'**
 
 ![image54.png](images/image54.png)
 
+## Challenge 2
 
+To complete this challenge we are going to be calling a shell from the server (reverse shell), that we are able to achieve by doing the following:
+
+![image55.png](images/image55.png)
+
+We then execute the code and enter the *cat flag.txt* to get our desired flag.
+
+![image56.png](images/image56.png)
 
