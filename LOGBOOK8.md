@@ -92,7 +92,14 @@ password:' OR 1=1--'**
 
 With this information, we gathered that the program doesn't have RELRO, which means there is risk of a buffer overflow. There is no canary protecting the return address, NX is disabled so it means that the stack has execute permission, but we see that there is PIE, that is responsible for providing some address randomness, and there is also RWX segments. <br>
 
-To complete this challenge we are going to be calling a shell from the server (reverse shell), that we are able to achieve by doing the following:
+![image58.png](images/image58.png)
+
+We analysed the code and then answered some questions:
+
+**Which is the line of code where the vulnerability is?** The vulnerability is in line 12 *gets(buffer);*. <br>
+**What does the vulnerability allow to do?**  The *gets()* function reads a byte from the stdin until it founds *\0* or *\n*. Since we are reading towards a 100 bytes buffer, we can inject a payload bigger than 100 bytes and like that, overwritte the value of the return address. Because of this vulnerability, we can inject the shellcode that will returns us a shell that will be useful for us to finish the challenge. <br>
+
+To complete this challenge we are going to be call a shell, as explained above, from the server, that we are able to achieve by doing the following:
 
 ![image55.png](images/image55.png)
 
