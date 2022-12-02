@@ -67,6 +67,24 @@ We can now log into his account using our password.
 ![image52.png](images/image52.png)
 ![image51.png](images/image51.png)
 
+### CTF semana 8 e 9
+
+## Challenge 1
+
+After analysing the code, we identified a vulnerability in the login section in the folling line:
+
+![image53.png](images/image53.png)
+
+As we can see in this code, there is a string without sanitization being created directly from the user input. This element can be easily exploit if the user has malicious intentions, and it's what's going to help us log into the system.
+
+To complete this challenge we focused on the password field, and by looking at the line of code that has the vulnerability, we see that the password is inserted inside *''*. So we are going to perform a SQL injection payload *OR 1=1* followed by *--* so it can help us avoid problems, that represents an inline comment. <br>
+
+After inserting this information we were able to obtain our flag. <br>
+
+**user: admin <br>
+password:' OR 1=1--'**
+
+![image54.png](images/image54.png)
 
 
 
