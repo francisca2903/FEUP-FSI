@@ -44,4 +44,41 @@ We then answered some questions:
 
 **Question 2: If the Elgg application only provide the Editor mode for the "About Me" field, i.e., you cannot switch to the Text mode, can you still launch a successful attack?** No, because if the application only provided the Editor mode, the attack will not be successful because this expecific mode adds some extra HTML and some symbols change.
 
+ # CTF Semana 10 e 11
 
+ ## Desafio 1
+
+ For this challenge the goal is to make a request to the adminstrator so that he gives us access to the flag. 
+ To achieve that, we started by checking what happened when a request was made, and we saw that two buttons appear, when we give the string *flag*.
+
+ ![image62.png](images/image62.png)
+
+ After that, we typped some HTML code and the result is was the follwing present in the screenshot:
+
+![image63.png](images/image63.png)
+
+![image64.png](images/image64.png)
+
+We then inspected our code to find out what was the button id and concluded it was *giveflag*. After inserting the follwing code, we got our flag.
+
+![image65.png](images/image65.png)
+![image66.png](images/image66.png)
+
+## Desafio 2
+
+After analysing the page, we saw that the functionalities that were available for non authenticated users were the login, ping a host and ask for a speed report.
+
+For this challenge, the importante functionality is pinging a host, that we concluded to be implemented by executing a shell command and then display the output.
+
+A vulnerability that could be present here is a shell code injection and to get use of it, we need to give an initial **;** to the input.
+
+Using the command **; ls** we obtained the following result:
+
+![image67.png](images/image67.png)
+![image68.png](images/image68.png)
+
+To reach our flag we did gave the following input and concluded the challenge.
+
+**; cd ..; cd ..; cd ..; cd ..; ls; cd flags; ls; cat flag.txt**
+
+![image69.png](images/image69.png)
