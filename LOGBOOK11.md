@@ -124,4 +124,18 @@ Then we could rebuild our container and start it, and when loading into the webs
 
 ![image102.png](images/image102.png)
 
+# CTF semana 12 e 13
 
+## Desafio 1
+
+First we need to find our enc_flag by doing the following:
+
+![image103.png](images/image103.png)
+
+Then we put together our exploit:
+
+![image104.png](images/image104.png)
+
+And obtain our flag:
+
+![imag105.png](images/image105.png)
